@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürünler - HighTechEffect</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product-card h3 {
+            margin: 1rem 0;
+        }
+
+        .product-card .price {
+            color: #00cc7d;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .product-card button {
+            width: 100%;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">HighTechEffect</div>
+            <ul>
+                <li><a href="../index.html">Ana Sayfa</a></li>
+                <li><a href="products.html">Ürünler</a></li>
+                <li><a href="checkout.html">Sepet</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 style="text-align: center; margin-bottom: 2rem;">İlgilendiğiniz Ürünler</h1>
+        <div class="products-grid" id="productsContainer">
+            <!-- Products will be loaded here by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 HighTechEffect. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        // Sample products data
+        const products = [
+            {
+                name: "Quantum İşlemci X1",
+                price: "9999.99",
+                description: "Yeni nesil kuantum işlemci",
+                image: "https://via.placeholder.com/200"
+            },
+            {
+                name: "AI Asistan Robot",
+                price: "15999.99",
+                description: "Yapay zeka destekli ev asistanı",
+                image: "https://via.placeholder.com/200"
+            },
+            // Add more products as needed
+        ];
+
+        // Load and display products
+        function displayProducts() {
+            const container = document.getElementById('productsContainer');
+            products.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.className = 'product-card';
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p class="price">₺${product.price}</p>
+                    <button onclick="addToCart('${product.name}')">Sepete Ekle</button>
+                `;
+                container.appendChild(productElement);
+            });
+        }
+
+        function addToCart(productName) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart.push(productName);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Ürün sepete eklendi!');
+        }
+
+        // Initialize page
+        displayProducts();
+    </script>
+</body>
+</html>
