@@ -6,7 +6,7 @@ from src.indicators import (
 )
 
 app = Flask(__name__,
-    template_folder='templates',
+    template_folder='docs',
     static_folder='static'
 )
 

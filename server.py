@@ -7,7 +7,7 @@ from utils import fetch_bist100_data
 
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory="templates", **kwargs)
+        super().__init__(*args, directory="docs", **kwargs)
 
     def do_GET(self):
         if self.path.startswith('/api/stocks'):
