@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High Tech Effect</title>
+    <title>Sipariş Ver - High Tech Effect</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -16,14 +17,17 @@
                 <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
                 <li><a href="ai.html">Yapay Zekaya Sorun</a></li>
                 <li><a href="iletisim.html">İletişim</a></li>
-                <li><a href="siparis.html">Sipariş Ver</a></li>
+                <li><a href="siparis.html" class="active">Sipariş Ver</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="content">
-        <h2 class="welcome-text">Hoş Geldiniz! Size Nasıl Yardımcı Olalım?</h2>
-        <p>Bu ana sayfadır. Burada site hakkında bilgi verebilirsiniz.</p>
+        <h2 class="order-title">Sipariş Özeti</h2>
+        <div id="orderSummary">
+            <!-- Sipariş özeti burada görüntülenecek -->
+        </div>
+        <button type="button" class="order-button" onclick="completeOrder()">Siparişi Tamamla</button>
     </div>
 
     <footer>
@@ -35,5 +39,3 @@
     </footer>
 </body>
 </html>
-
-

@@ -3,42 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yavuz Taş ile iletişime geçin.">
-    <title>İletişim - Yavuz Taş</title>
-    <link rel="stylesheet" href="style.css">
+    <title>İletişim - High Tech Effect</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
+        <h1 class="site-title">High Tech Effect</h1>
         <nav>
-            <ul class="nav-links">
+            <ul>
                 <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="hakkimda.html">Hakkımda</a></li>
-                <li><a href="projeler.html">Projeler</a></li>
-                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
+                <li><a href="ai.html">Yapay Zekaya Sorun</a></li>
+                <li><a href="iletisim.html" class="active">İletişim</a></li>
+                <li><a href="siparis.html">Sipariş Ver</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="contact">
-            <h1>İletişim</h1>
-            <form action="send_email.php" method="post">
-                <label for="name">Adınız:</label>
-                <input type="text" id="name" name="name" placeholder="Adınızı girin" required>
-                
-                <label for="email">E-posta:</label>
-                <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required>
-                
-                <label for="message">Mesajınız:</label>
-                <textarea id="message" name="message" placeholder="Mesajınızı yazın" rows="4" required></textarea>
-                
-                <button type="submit" class="btn">Gönder</button>
+    <div class="content">
+        <h2 class="page-title">İletişim</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Bize Ulaşın</h3>
+                <p>Adres: High Tech Effect, Teknoloji Caddesi No: 123, İstanbul</p>
+                <p>Telefon: +90 555 123 4567</p>
+                <p>Email: info@hightecheffect.com</p>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Adınız" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email Adresiniz" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Mesajınız" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="order-button">Gönder</button>
             </form>
-        </section>
-    </main>
+        </div>
+    </div>
 
     <footer>
-        <p>&copy; 2025 Yavuz Taş'ın Web Sitesi. Tüm hakları saklıdır.</p>
+        <div class="social-links">
+            <a href="https://www.youtube.com" target="_blank">YouTube</a>
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        </div>
+        <p>© 2025 High Tech Effect. Tüm hakları saklıdır.</p>
     </footer>
 </body>
 </html>

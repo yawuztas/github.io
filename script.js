@@ -1,33 +1,86 @@
-// Select the button element
-const tiklaBtn = document.getElementById("tiklaBtn");
+function showOrderSummary() {
+    const orderForm = document.getElementById('orderForm');
+    const products = orderForm.querySelectorAll('.product');
+    let total = 0;
+    
+    products.forEach(product => {
+        const productName = product.querySelector('h3').textContent;
+        const productQuantity = parseInt(product.querySelector('input').value);
+        
+        if (productQuantity > 0) {
+            total += 1000 * productQuantity;
+        }
+    });
 
-// Add an event listener for the button click
-tiklaBtn.addEventListener("click", function () {
-    // Display an alert message
-    alert("Butona tıkladın! 🎉");
+    if (total === 0) {
+        alert('Lütfen en az bir ürün seçiniz!');
+        return;
+    }
 
-    // Change the button text after clicking
-    tiklaBtn.textContent = "Tekrar Tıkla!";
+    const orderSummary = document.getElementById('orderSummary');
+    orderSummary.innerHTML = '<h3>Sipariş Özeti</h3>';
+    
+    products.forEach(product => {
+        const productName = product.querySelector('h3').textContent;
+        const productQuantity = parseInt(product.querySelector('input').value);
+        
+        if (productQuantity > 0) {
+            orderSummary.innerHTML += `
+                <p>Ürün: ${productName}</p>
+                <p>Adet: ${productQuantity}</p>
+                <p>Fiyat: ${1000 * productQuantity} TL</p>
+                <hr>
+            `;
+        }
+    });
 
-    // Create a new paragraph element dynamically
-    const newParagraph = document.createElement("p");
-    newParagraph.textContent = "Tebrikler, butona başarıyla tıkladınız!";
-    newParagraph.style.color = "green";
-    newParagraph.style.fontWeight = "bold";
+    orderSummary.innerHTML += `<p>Total: ${total} TL</p>`;
+    
+    window.location.href = 'siparis.html';
+}
 
-    // Append the new paragraph to the body
-    document.body.appendChild(newParagraph);
+function completeOrder() {
+    alert('Siparişiniz başarıyla tamamlandı!');
+    window.location.href = 'index.html';
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const chatBox = document.getElementById('chat-box');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
 
-    // Change the background color of the page for fun
-    document.body.style.backgroundColor = getRandomColor();
+    sendButton.addEventListener('click', function() {
+        const message = userInput.value.trim();
+        if (message) {
+            addMessageToChat(message, 'user');
+            userInput.value = '';
+            // Burada AI'a soru göndermek için API çağrısı ekleyebilirsiniz
+            setTimeout(function() {
+                addMessageToChat('Bu bir demo cevaptır. Gerçek bir AI entegrasyonu için API anahtarınız gereklidir.', 'assistant');
+            }, 1000);
+        }
+    });
+
+    function addMessageToChat(message, sender) {
+        const chatMessage = document.createElement('div');
+        chatMessage.className = `chat-message ${sender}`;
+        chatMessage.textContent = message;
+        chatBox.appendChild(chatMessage);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    // Enter tuşuna basıldığında mesaj gönderilsin
+    userInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendButton.click();
+        }
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.contact-form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Mesajınız başarıyla gönderildi!');
+        form.reset();
+    });
 });
 
-// Function to generate a random color
-function getRandomColor() {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
