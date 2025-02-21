@@ -146,6 +146,37 @@ nav ul li a.active {
     transform: scale(0.95);
 }
 
+/* Sipariş özeti stilleri */
+.order-summary {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left;
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+}
+
+.order-item {
+    margin: 15px 0;
+    padding: 10px;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.total-price {
+    color: #ffcc00;
+    text-align: right;
+    margin-top: 20px;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+
+
 .social-links {
     margin: 10px 0;
 }

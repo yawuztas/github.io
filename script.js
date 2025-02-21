@@ -1,48 +1,66 @@
+// urunlerimiz.html için
 function showOrderSummary() {
-    const orderForm = document.getElementById('orderForm');
-    const products = orderForm.querySelectorAll('.product');
+    const orderItems = [];
     let total = 0;
     
-    products.forEach(product => {
-        const productName = product.querySelector('h3').textContent;
-        const productQuantity = parseInt(product.querySelector('input').value);
-        
-        if (productQuantity > 0) {
-            total += 1000 * productQuantity;
+    document.querySelectorAll('.product').forEach(product => {
+        const quantity = parseInt(product.querySelector('input').value);
+        if(quantity > 0) {
+            const productName = product.querySelector('h3').textContent;
+            const productPrice = 1000;
+            orderItems.push({
+                name: productName,
+                quantity: quantity,
+                price: productPrice
+            });
+            total += productPrice * quantity;
         }
     });
 
-    if (total === 0) {
+    if(total === 0) {
         alert('Lütfen en az bir ürün seçiniz!');
         return;
     }
 
-    const orderSummary = document.getElementById('orderSummary');
-    orderSummary.innerHTML = '<h3>Sipariş Özeti</h3>';
-    
-    products.forEach(product => {
-        const productName = product.querySelector('h3').textContent;
-        const productQuantity = parseInt(product.querySelector('input').value);
-        
-        if (productQuantity > 0) {
-            orderSummary.innerHTML += `
-                <p>Ürün: ${productName}</p>
-                <p>Adet: ${productQuantity}</p>
-                <p>Fiyat: ${1000 * productQuantity} TL</p>
-                <hr>
-            `;
-        }
-    });
+    localStorage.setItem('orderSummary', JSON.stringify({
+        items: orderItems,
+        total: total
+    }));
 
-    orderSummary.innerHTML += `<p>Total: ${total} TL</p>`;
-    
     window.location.href = 'siparis.html';
 }
 
+// siparis.html için
+function loadOrderSummary() {
+    const orderData = JSON.parse(localStorage.getItem('orderSummary'));
+    const orderSummary = document.getElementById('orderSummary');
+    
+    if(!orderData) {
+        orderSummary.innerHTML = '<p>Henüz sipariş verilmemiş</p>';
+        return;
+    }
+
+    orderSummary.innerHTML = '<h3>Sipariş Detayları</h3>';
+    orderData.items.forEach(item => {
+        orderSummary.innerHTML += `
+            <div class="order-item">
+                <p>Ürün: ${item.name}</p>
+                <p>Adet: ${item.quantity}</p>
+                <p>Tutar: ${item.price * item.quantity} TL</p>
+            </div>
+        `;
+    });
+    orderSummary.innerHTML += `<h4 class="total-price">Toplam: ${orderData.total} TL</h4>`;
+}
+
 function completeOrder() {
+    localStorage.removeItem('orderSummary');
     alert('Siparişiniz başarıyla tamamlandı!');
     window.location.href = 'index.html';
 }
+
+// ai.html için
+
 document.addEventListener('DOMContentLoaded', function() {
     const chatBox = document.getElementById('chat-box');
     const userInput = document.getElementById('user-input');

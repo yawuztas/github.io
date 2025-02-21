@@ -14,162 +14,265 @@
             <ul>
                 <li><a href="index.html">Ana Sayfa</a></li>
                 <li><a href="hakkimizda.html">Hakkımızda</a></li>
-                <li><a href="urunlerimiz.html" class="active">Ürünlerimiz</a></li>
-                <li><a href="ai.html">Yapay Zekaya Sorun</a></li>
+                
+                <li><a href="ai.html">Sorun Söyleyelim</a></li>
                 <li><a href="iletisim.html">İletişim</a></li>
-                <li><a href="siparis.html">Sipariş Ver</a></li>
+                <li><a href="siparis.html">Sipariş Onayı</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="content">
         <h2 class="product-title">Ürünlerimiz</h2>
-        <div class="product-list">
-            <form id="orderForm">
-                <!-- Ürün 1 -->
-                <div class="product">
-                    <h3>Ürün 1</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product1">Adet:</label>
-                    <input type="number" id="product1" name="product1" min="0" max="10" value="0">
+        <style>
+            .product-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                padding: 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+    
+            .product {
+                background: #dad2af;
+                padding: 15px;
+                border-radius: 8px;
+                text-align: center;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                margin-bottom: 20px;
+            }
+    
+            .product h3 {
+                color: #333;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+    
+            .product p {
+                color: #1f1312;
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+    
+            .quantity-selector {
+                margin: 15px 0;
+            }
+    
+            .quantity-selector label {
+                color: #333;
+                margin-right: 10px;
+            }
+    
+            .quantity-selector input {
+                width: 60px;
+                padding: 5px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+    
+            .social-links {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 15px;
+            }
+    
+            .social-links img {
+                width: 24px;
+                height: 24px;
+                transition: transform 0.2s;
+            }
+    
+            .social-links img:hover {
+                transform: scale(1.1);
+            }
+    
+            .order-button {
+                display: block;
+                width: 200px;
+                margin: 30px auto;
+                padding: 12px 20px;
+                background-color: #3498db;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                clear: both;
+            }
+    
+            .order-button:hover {
+                background-color: #2980b9;
+            }
+    
+            .content {
+                margin-bottom: 100px; /* Footer'dan önce boşluk */
+            }
+        </style>
+    
+        <div class="product-container">
+            <!-- Ürün 1 -->
+            <div class="product">
+                <h3>Ürün 1</h3>
+                <p>Fiyatı: 1000 TL</p>
+                <form id="orderForm">
+                    <div class="quantity-selector">
+                        <label for="product1">Adet:</label>
+                        <input type="number" id="product1" name="product1" min="0" max="10" value="0">
+                    </div>
+                </form>
+                <div class="social-links">
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="images/youtube-logo-png-46020.png" alt="YouTube">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/Instagram_icon.png" alt="Instagram">
+                    </a>
                 </div>
-                <!-- Ürün 2 -->
-                <div class="product">
-                    <h3>Ürün 2</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product2">Adet:</label>
-                    <input type="number" id="product2" name="product2" min="0" max="10" value="0">
+            </div>
+    
+            <!-- Ürün 2 -->
+            <div class="product">
+                <h3>Ürün 2</h3>
+                <p>Fiyatı: 1000 TL</p>
+                <form id="orderForm">
+                    <div class="quantity-selector">
+                        <label for="product2">Adet:</label>
+                        <input type="number" id="product2" name="product2" min="0" max="10" value="0">
+                    </div>
+                </form>
+                <div class="social-links">
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="images/youtube-logo-png-46020.png" alt="YouTube">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/Instagram_icon.png" alt="Instagram">
+                    </a>
                 </div>
-                <!-- Ürün 3 -->
-                <div class="product">
-                    <h3>Ürün 3</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product3">Adet:</label>
-                    <input type="number" id="product3" name="product3" min="0" max="10" value="0">
+            </div>
+
+            <!-- Ürün 2 -->
+            <div class="product">
+                <h3>Ürün 2</h3>
+                <p>Fiyatı: 1000 TL</p>
+                <form id="orderForm">
+                    <div class="quantity-selector">
+                        <label for="product2">Adet:</label>
+                        <input type="number" id="product2" name="product2" min="0" max="10" value="0">
+                    </div>
+                </form>
+                <div class="social-links">
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="images/youtube-logo-png-46020.png" alt="YouTube">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/Instagram_icon.png" alt="Instagram">
+                    </a>
                 </div>
-                <!-- Ürün 4 -->
-                <div class="product">
-                    <h3>Ürün 4</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product4">Adet:</label>
-                    <input type="number" id="product4" name="product4" min="0" max="10" value="0">
+            </div>
+            <!-- Ürün 2 -->
+            <div class="product">
+                <h3>Ürün 2</h3>
+                <p>Fiyatı: 1000 TL</p>
+                <form id="orderForm">
+                    <div class="quantity-selector">
+                        <label for="product2">Adet:</label>
+                        <input type="number" id="product2" name="product2" min="0" max="10" value="0">
+                    </div>
+                </form>
+                <div class="social-links">
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="images/youtube-logo-png-46020.png" alt="YouTube">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/Instagram_icon.png" alt="Instagram">
+                    </a>
                 </div>
-                <!-- Ürün 5 -->
-                <div class="product">
-                    <h3>Ürün 5</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product5">Adet:</label>
-                    <input type="number" id="product5" name="product5" min="0" max="10" value="0">
+            </div>
+            <!-- Ürün 2 -->
+            <div class="product">
+                <h3>Ürün 2</h3>
+                <p>Fiyatı: 1000 TL</p>
+                <form id="orderForm">
+                    <div class="quantity-selector">
+                        <label for="product2">Adet:</label>
+                        <input type="number" id="product2" name="product2" min="0" max="10" value="0">
+                    </div>
+                </form>
+                <div class="social-links">
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="images/youtube-logo-png-46020.png" alt="YouTube">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/Instagram_icon.png" alt="Instagram">
+                    </a>
                 </div>
-                <!-- Ürün 6 -->
-                <div class="product">
-                    <h3>Ürün 6</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product6">Adet:</label>
-                    <input type="number" id="product6" name="product6" min="0" max="10" value="0">
+            </div>
+            <!-- Ürün 2 -->
+            <div class="product">
+                <h3>Ürün 2</h3>
+                <p>Fiyatı: 1000 TL</p>
+                <form id="orderForm">
+                    <div class="quantity-selector">
+                        <label for="product2">Adet:</label>
+                        <input type="number" id="product2" name="product2" min="0" max="10" value="0">
+                    </div>
+                </form>
+                <div class="social-links">
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="images/youtube-logo-png-46020.png" alt="YouTube">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/Instagram_icon.png" alt="Instagram">
+                    </a>
                 </div>
-                <!-- Ürün 7 -->
-                <div class="product">
-                    <h3>Ürün 7</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product7">Adet:</label>
-                    <input type="number" id="product7" name="product7" min="0" max="10" value="0">
+            </div>
+            <!-- Ürün 2 -->
+            <div class="product">
+                <h3>Ürün 2</h3>
+                <p>Fiyatı: 1000 TL</p>
+                <form id="orderForm">
+                    <div class="quantity-selector">
+                        <label for="product2">Adet:</label>
+                        <input type="number" id="product2" name="product2" min="0" max="10" value="0">
+                    </div>
+                </form>
+                <div class="social-links">
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="images/youtube-logo-png-46020.png" alt="YouTube">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/Instagram_icon.png" alt="Instagram">
+                    </a>
                 </div>
-                <!-- Ürün 8 -->
-                <div class="product">
-                    <h3>Ürün 8</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product8">Adet:</label>
-                    <input type="number" id="product8" name="product8" min="0" max="10" value="0">
+            </div>
+            <!-- Ürün 2 -->
+            <div class="product">
+                <h3>Ürün 2</h3>
+                <p>Fiyatı: 1000 TL</p>
+                <form id="orderForm">
+                    <div class="quantity-selector">
+                        <label for="product2">Adet:</label>
+                        <input type="number" id="product2" name="product2" min="0" max="10" value="0">
+                    </div>
+                </form>
+                <div class="social-links">
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="images/youtube-logo-png-46020.png" alt="YouTube">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="images/Instagram_icon.png" alt="Instagram">
+                    </a>
                 </div>
-                <!-- Ürün 9 -->
-                <div class="product">
-                    <h3>Ürün 9</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product9">Adet:</label>
-                    <input type="number" id="product9" name="product9" min="0" max="10" value="0">
-                </div>
-                <!-- Ürün 10 -->
-                <div class="product">
-                    <h3>Ürün 10</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product10">Adet:</label>
-                    <input type="number" id="product10" name="product10" min="0" max="10" value="0">
-                </div>
-                <!-- Ürün 11 -->
-                <div class="product">
-                    <h3>Ürün 11</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product11">Adet:</label>
-                    <input type="number" id="product11" name="product11" min="0" max="10" value="0">
-                </div>
-                <!-- Ürün 12 -->
-                <div class="product">
-                    <h3>Ürün 12</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product12">Adet:</label>
-                    <input type="number" id="product12" name="product12" min="0" max="10" value="0">
-                </div>
-                <!-- Ürün 13 -->
-                <div class="product">
-                    <h3>Ürün 13</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product13">Adet:</label>
-                    <input type="number" id="product13" name="product13" min="0" max="10" value="0">
-                </div>
-                <!-- Ürün 14 -->
-                <div class="product">
-                    <h3>Ürün 14</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product14">Adet:</label>
-                    <input type="number" id="product14" name="product14" min="0" max="10" value="0">
-                </div>
-                <!-- Ürün 15 -->
-                <div class="product">
-                    <h3>Ürün 15</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product15">Adet:</label>
-                    <input type="number" id="product15" name="product15" min="0" max="10" value="0">
-                </div>
-                <!-- Ürün 16 -->
-                <div class="product">
-                    <h3>Ürün 16</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product16">Adet:</label>
-                    <input type="number" id="product16" name="product16" min="0" max="10" value="0">
-                </div>
-                <!-- Ürün 17 -->
-                <div class="product">
-                    <h3>Ürün 17</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product17">Adet:</label>
-                    <input type="number" id="product17" name="product17" min="0" max="10" value="0">
-                </div>
-                <!-- Ürün 18 -->
-                <div class="product">
-                    <h3>Ürün 18</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product18">Adet:</label>
-                    <input type="number" id="product18" name="product18" min="0" max="10" value="0">
-                </div>
-                <!-- Ürün 19 -->
-                <div class="product">
-                    <h3>Ürün 19</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product19">Adet:</label>
-                    <input type="number" id="product19" name="product19" min="0" max="10" value="0">
-                </div>
-                <!-- Ürün 20 -->
-                <div class="product">
-                    <h3>Ürün 20</h3>
-                    <p>Fiyatı: 1000 TL</p>
-                    <label for="product20">Adet:</label>
-                    <input type="number" id="product20" name="product20" min="0" max="10" value="0">
-                </div>
-            </form>
-            <button type="button" class="order-button" onclick="showOrderSummary()">Sipariş Ver</button>
+            </div>
+    
+            <!-- Diğer ürünler için aynı yapıyı tekrarlayın -->
         </div>
+    
+        <button type="button" class="order-button" onclick="showOrderSummary()">Sipariş Ver</button>
     </div>
+    
 
     <footer>
         <div class="social-links">
